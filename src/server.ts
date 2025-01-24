@@ -5,6 +5,12 @@ const server = fastify({
   logger: true
 })
 
+// Registra o middleware CORS com a opção origin: "*", permitindo requisições de qualquer origem.
+// Ideal para desenvolvimento, mas em produção, recomenda-se restringir as origens permitidas por segurança.
+server.register(cors, {
+  origin: "*" // origin: ["www.dio.me", "brunolindoso.com"] // Exemplo de como seria em produção
+})
+
 const teams = [
   { id: 1, name: "McLaren", base: "Woking, United Kingdom" },
   { id: 2, name: "Mercedes", base: "Brackley, United Kingdom" },
